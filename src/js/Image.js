@@ -44,6 +44,10 @@ export default class Image extends React.Component {
     });
   }
 
+  keywordSearch(keyword){
+    console.log(keyword)
+  }
+
   updateTooltip(){
 
   }
@@ -67,6 +71,8 @@ export default class Image extends React.Component {
           return <span
             key={i}
             className="Image-keyword"
+            ref="imageKeyword"
+            onClick={this.keywordSearch.bind(this, keyword)}
             >{keyword},</span>
         })}
         <ReactTooltip />

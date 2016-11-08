@@ -1,6 +1,4 @@
 .Image {
-  display: inline-block;
-  vertical-align: top;
   /*background-color: #fff;*/
   /*border: 5px solid #fff;*/
   width: calc(50% - 10px);
@@ -15,8 +13,15 @@
     width: calc(25% - 19px);
   }
 
+  &:nth-child(3n+0) {
+    @include breakpoint(break-get(small) break-get(medium) - 1) {
+      margin-right: 0;
+    }
+  }
   &:nth-child(4n+0) {
-    margin-right: 0;
+    @include breakpoint(break-get(medium)) {
+      margin-right: 0;
+    }
   }
 }
 

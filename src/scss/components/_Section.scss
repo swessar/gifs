@@ -1,3 +1,8 @@
 .Section {
   margin-bottom: 50px;
 }
+
+.Section--images {
+  display: flex;
+  flex-wrap: wrap;
+}
