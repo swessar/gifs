@@ -1,0 +1,9 @@
+$breakpoints: (
+  small: 600px,
+  medium: 800px,
+  full: 1000px
+);
+
+@function break-get($key, $map: $breakpoints) {
+  @return map-get($map, $key);
+}

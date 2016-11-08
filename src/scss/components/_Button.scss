@@ -1,0 +1,18 @@
+.Button {
+  background-color: $color-blue;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  outline: 0;
+  font-weight: bold;
+  @include font-size(14);
+
+  &:hover {
+    background-color: darken($color-blue, 5%);
+  }
+  &:active {
+    background-color: darken($color-blue, 10%);
+  }
+}

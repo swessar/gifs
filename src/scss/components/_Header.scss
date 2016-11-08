@@ -1,0 +1,22 @@
+.Header {
+  /*background: #fff;*/
+  /*border-bottom: 1px solid #eee;*/
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /*padding: 20px 0;*/
+}
+
+.Header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header-logo {
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+  font-size: 29px;
+  line-height: 1;
+  letter-spacing: 5px;
+}

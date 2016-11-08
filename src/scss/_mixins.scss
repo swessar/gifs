@@ -1,0 +1,27 @@
+@mixin font-size($size: 14, $line: $size + 5) {
+  font-size: $size + px;
+  line-height: $line + px;
+}
+
+//-----------------------------------------
+// Margin & Padding
+//-----------------------------------------
+@mixin margin-x($m: 10px) {
+  margin-right: $m;
+  margin-left: $m;
+}
+
+@mixin margin-y($m: 10px) {
+  margin-top: $m;
+  margin-bottom: $m;
+}
+
+@mixin padding-x($p: 10px) {
+  padding-right: $p;
+  padding-left: $p;
+}
+
+@mixin padding-y($p: 10px) {
+  padding-top: $p;
+  padding-bottom: $p;
+}
