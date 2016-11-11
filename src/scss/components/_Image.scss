@@ -38,5 +38,11 @@
   margin-right: 5px;
   color: #fff;
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
   @include font-size(14);
+
+  &:hover {
+    color: $color-blue;
+  }
 }

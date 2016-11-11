@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Clipboard from 'clipboard';
 import ReactTooltip from 'react-tooltip';
+import { addFavorite } from '../actions/favoritesActions';
 
-export default class Image extends React.Component {
+class Image extends React.Component {
   constructor(props) {
     super(props);
 
@@ -45,7 +47,12 @@ export default class Image extends React.Component {
   }
 
   keywordSearch(keyword){
-    console.log(keyword)
+    this.props.doSearch(keyword);
+  }
+
+  _toggleFavorite () {
+    const { dispatch, favorites } = this.props;
+    dispatch(addFavorite('Emil'));
   }
 
   updateTooltip(){
@@ -75,8 +82,15 @@ export default class Image extends React.Component {
             onClick={this.keywordSearch.bind(this, keyword)}
             >{keyword},</span>
         })}
+        <div onClick={this._toggleFavorite.bind(this)}>Favorite</div>
         <ReactTooltip />
       </div>
     )
   }
 }
+
+export default connect(
+  state => ({
+    favorites: state.favorites
+  })
+)(Image);

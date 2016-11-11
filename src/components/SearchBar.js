@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class SearchBar extends React.Component {
-  doSearch() {
+  callSearch() {
     let query = this.refs.searchInput.value;
     this.props.doSearch(query);
   }
@@ -15,9 +15,9 @@ export default class SearchBar extends React.Component {
           ref="searchInput"
           placeholder="Search keywords..."
           value={this.props.query}
-          onChange={this.doSearch.bind(this)}
+          onChange={this.callSearch.bind(this)}
         />
-      <div className="SearchBar-counter">{this.props.count} images found</div>
+        <div className="SearchBar-counter">{this.props.count} images found</div>
       </div>
     )
   }

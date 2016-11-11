@@ -11,6 +11,7 @@ export default class Images extends React.Component {
             imageUrl={image.image}
             gifUrl={image.gif}
             keywords={image.keywords}
+            doSearch={this.props.doSearch}
             tipText="Copy to clipboard"
             tipTextCopied="Copied!"
           />

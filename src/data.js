@@ -29,6 +29,16 @@ export default {
       image: 'images/2.jpg',
       gif: 'http://i.imgur.com/9lRYBIB.gif',
       keywords: ['cool', 'shades']
+    },
+    {
+      image: 'images/1.jpg',
+      gif: 'http://i.imgur.com/vqYuG.gif',
+      keywords: ['win', 'applaud']
+    },
+    {
+      image: 'images/3.jpg',
+      gif: 'https://media.giphy.com/media/3e7py8T1awDSg/giphy.gif',
+      keywords: ['hay', 'jimmy fallon']
     }
   ]
 }

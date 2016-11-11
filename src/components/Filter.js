@@ -14,15 +14,13 @@ export default class Filter extends React.Component {
   }
 
   doSearch(searchText) {
-    let filteredImages = this.props.images.filter(
-      (image) => {
-        for(var i = 0; i < image.keywords.length; i++) {
-          if (image.keywords[i].indexOf(searchText) != -1) {
-            return image;
-          }
+    let filteredImages = this.props.images.filter((image) => {
+      for(var i = 0; i < image.keywords.length; i++) {
+        if (image.keywords[i].indexOf(searchText) != -1) {
+          return image;
         }
       }
-    );
+    });
 
     this.setState({
       query: searchText,
@@ -38,7 +36,9 @@ export default class Filter extends React.Component {
             query={this.state.query}
             doSearch={this.doSearch.bind(this)}
             count={this.state.results.length} />
-          <Images images={this.state.results} />
+          <Images
+            images={this.state.results}
+            doSearch={this.doSearch.bind(this)} />
         </div>
       </div>
     )
