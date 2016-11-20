@@ -10,12 +10,12 @@ export default function favorites(state = getInitialState(), action) {
     case 'ADD_FAVORITE':
       return {
         ...state,
-        items: [...state, action.item]
+        items: action.items
       }
     case 'REMOVE_FAVORITE':
       return {
         ...state,
-        items: []
+        items: action.items
       }
     default:
       return state;
@@ -23,5 +23,5 @@ export default function favorites(state = getInitialState(), action) {
 }
 
 function getStoredFavorites() {
-  return JSON.parse(localStorage.getItem('ov_favorites_v4')) || '[]';
+  return JSON.parse(localStorage.getItem('gifs_favorites')) || [];
 }

@@ -1,4 +1,4 @@
-import { combineReducers, applyMiddleware, createStore } from 'redux';
+import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import favorites from './favoritesReducer';
@@ -7,6 +7,14 @@ const reducers = combineReducers({
   favorites: favorites
 });
 
-const middleware = applyMiddleware(thunk, logger());
+// const middleware = applyMiddleware(thunk, logger());
 
-export const store = createStore(reducers, middleware);
+
+const enhancer = compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+
+
+// export const store = createStore(reducers, middleware);
+export const store = createStore(reducers, enhancer);

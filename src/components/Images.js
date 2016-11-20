@@ -8,6 +8,7 @@ export default class Images extends React.Component {
         {this.props.images.map((image, i) => {
           return <Image
             key={i}
+            id={image.id}
             imageUrl={image.image}
             gifUrl={image.gif}
             keywords={image.keywords}

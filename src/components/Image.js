@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Clipboard from 'clipboard';
 import ReactTooltip from 'react-tooltip';
-import { addFavorite } from '../actions/favoritesActions';
+import { addFavorite, removeFavorite } from '../actions/favoritesActions';
 
 class Image extends React.Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class Image extends React.Component {
       imageUrl: this.props.imageUrl,
       gifUrl: this.props.gifUrl,
       tipText: this.props.tipText,
-      keywords: this.props.keywords
+      keywords: this.props.keywords,
+      activeItem: false
     }
   }
 
@@ -23,7 +24,8 @@ class Image extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       imageUrl: nextProps.imageUrl,
-      keywords: nextProps.keywords
+      keywords: nextProps.keywords,
+      activeItem: nextProps.favorites.items.includes(nextProps.id)
     });
   }
 
@@ -33,12 +35,14 @@ class Image extends React.Component {
     });
   }
 
+  // Set gif as src
   loadGif(){
     this.setState({
       imageUrl: this.props.gifUrl
     });
   }
 
+  // Set image as src
   loadImage(){
     this.setState({
       imageUrl: this.props.imageUrl,
@@ -51,30 +55,37 @@ class Image extends React.Component {
   }
 
   _toggleFavorite () {
-    const { dispatch, favorites } = this.props;
-    dispatch(addFavorite('Emil'));
-  }
+    const { dispatch, id } = this.props;
+    const { activeItem } = this.state;
 
-  updateTooltip(){
-
+    // Remove favorite
+    if (activeItem) {
+      dispatch(removeFavorite(id));
+    }
+    // Add favorite
+    else {
+      dispatch(addFavorite(id));
+    }
   }
 
   render() {
+    const { gifUrl, tipText, imageUrl, keywords } = this.props;
+
     return (
       <div className="Image">
         <img
           className="Image-img"
-          data-clipboard-text={this.state.gifUrl}
-          data-tip={this.state.tipText}
+          data-clipboard-text={ gifUrl }
+          data-tip={ tipText }
           data-effect="solid"
           data-type="light"
-          src={this.state.imageUrl}
-          gifUrl={this.state.gifUrl}
+          src={ this.state.imageUrl }
+          gifUrl={ gifUrl }
           onClick={this.copyGif.bind(this)}
           onMouseOver={this.loadGif.bind(this)}
           onMouseOut={this.loadImage.bind(this)}
         />
-        {this.props.keywords.map((keyword, i) => {
+        {keywords.map((keyword, i) => {
           return <span
             key={i}
             className="Image-keyword"
@@ -82,7 +93,10 @@ class Image extends React.Component {
             onClick={this.keywordSearch.bind(this, keyword)}
             >{keyword},</span>
         })}
-        <div onClick={this._toggleFavorite.bind(this)}>Favorite</div>
+        <div
+          className={"Favorite" + (this.state.activeItem ? " is-active" : "")}
+          onClick={this._toggleFavorite.bind(this)}
+        ></div>
         <ReactTooltip />
       </div>
     )

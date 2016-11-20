@@ -20,7 +20,8 @@ module.exports = {
         test: /\.scss$/,
         exclude: "/node_modules/",
         loaders: ["style", "css?sourceMap", "sass?sourceMap"]
-      }
+      },
+      { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=.]+)?$/, loader: 'url-loader?limit=100000' }
     ]
   },
   output: {

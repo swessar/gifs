@@ -4,6 +4,7 @@
   width: calc(50% - 10px);
   margin: 0 5px 10px;
   overflow: hidden;
+  position: relative;
 
   @include breakpoint(break-get(small)) {
     width: calc(33% - 20px);

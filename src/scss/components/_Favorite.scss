@@ -1,0 +1,16 @@
+.Favorite {
+  background-image: url('../images/svg/star.svg');
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover,
+  &.is-active {
+    background-image: url('../images/svg/star-active.svg');
+  }
+}
