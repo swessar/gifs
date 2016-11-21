@@ -10,7 +10,8 @@
     color: #fff;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &.is-active {
       text-decoration: underline;
     }
   }

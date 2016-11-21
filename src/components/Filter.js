@@ -29,16 +29,20 @@ export default class Filter extends React.Component {
   }
 
   render() {
+    const { query, results } = this.state;
+
     return (
       <div className="Filter">
         <div className="Site-region">
           <SearchBar
-            query={this.state.query}
+            query={query}
             doSearch={this.doSearch.bind(this)}
-            count={this.state.results.length} />
+            count={results.length}
+          />
           <Images
-            images={this.state.results}
-            doSearch={this.doSearch.bind(this)} />
+            images={results}
+            doSearch={this.doSearch.bind(this)}
+          />
         </div>
       </div>
     )

@@ -7,6 +7,8 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
+    const { query, count } = this.props;
+
     return (
       <div className="SearchBar">
         <input
@@ -14,10 +16,10 @@ export default class SearchBar extends React.Component {
           className="SearchBar-input"
           ref="searchInput"
           placeholder="Search keywords..."
-          value={this.props.query}
+          value={query}
           onChange={this.callSearch.bind(this)}
         />
-        <div className="SearchBar-counter">{this.props.count} images found</div>
+        <div className="SearchBar-counter">{count} images found</div>
       </div>
     )
   }
