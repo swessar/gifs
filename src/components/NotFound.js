@@ -1,9 +1,11 @@
 import React from "react";
-const NotFound = () => {
- return (
-   <div>
-    <h1>404!</h1>
-   </div>
- )
+
+const NotFound = ({location}) => {
+  return (
+    <div className="Site-region">
+      <h1>404! {location.pathname}</h1>
+    </div>
+  )
 }
+
 export default NotFound;

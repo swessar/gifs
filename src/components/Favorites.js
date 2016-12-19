@@ -1,16 +1,31 @@
 import React from "react";
+import { connect } from 'react-redux';
 import Filter from './Filter';
 import data from '../data';
 
-const Favorites = () => {
- return (
-   <div>
-     <div className="Site-region">
-       <h1>Favorites</h1>
-     </div>
-     <Filter images={data.images} />
-   </div>
- )
+class Favorites extends React.Component {
+  componentWillMount() {
+    const { favorites } = this.props;
+
+    let filteredImages = favorites.items.map((id, i) => {
+      const image = data.images.filter(i => i.id === id);
+      return image[0];
+    });
+
+    this.setState({
+      filteredImages: filteredImages
+    });
+  }
+
+  render() {
+    return (
+      <Filter images={this.state.filteredImages} />
+    )
+  };
 }
 
-export default Favorites;
+export default connect(
+  state => ({
+    favorites: state.favorites
+  })
+)(Favorites);

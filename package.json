@@ -37,7 +37,7 @@
     "url-to-screenshot": "^0.6.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --content-base src --inline --hot"
+    "start": "webpack-dev-server --content-base src --inline --hot --history-api-fallback"
   },
   "author": "",
   "license": "ISC"

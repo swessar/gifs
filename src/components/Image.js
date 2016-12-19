@@ -8,12 +8,11 @@ class Image extends React.Component {
   constructor(props) {
     super(props);
 
+    const { imageUrl, favorites, id } = this.props;
+
     this.state = {
-      imageUrl: this.props.imageUrl,
-      gifUrl: this.props.gifUrl,
-      tipText: this.props.tipText,
-      keywords: this.props.keywords,
-      activeItem: false
+      imageUrl: imageUrl,
+      activeItem: favorites.items.includes(id)
     }
   }
 
@@ -22,6 +21,8 @@ class Image extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+
     this.setState({
       imageUrl: nextProps.imageUrl,
       keywords: nextProps.keywords,

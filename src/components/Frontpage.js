@@ -3,9 +3,9 @@ import Filter from './Filter';
 import data from '../data';
 
 const Frontpage = () => {
- return (
-   <Filter images={data.images} />
- )
+  return (
+    <Filter images={data.images} />
+  )
 }
 
 export default Frontpage;

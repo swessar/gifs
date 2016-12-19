@@ -5,7 +5,6 @@ import AddImage from './AddImage';
 import Frontpage from './Frontpage';
 import Favorites from './Favorites';
 import NotFound from "./NotFound";
-import data from '../data';
 
 export default class App extends React.Component {
   render() {

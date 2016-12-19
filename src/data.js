@@ -47,6 +47,12 @@ export default {
       image: 'images/3.jpg',
       gif: 'https://media.giphy.com/media/3e7py8T1awDSg/giphy.gif',
       keywords: ['hay', 'jimmy fallon']
+    },
+    {
+      id: 9,
+      image: 'images/2.jpg',
+      gif: 'http://i.imgur.com/QONVIyz.gif',
+      keywords: ['impressed', 'banderas']
     }
   ]
 }
