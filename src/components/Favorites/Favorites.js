@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import Filter from './Filter';
-import data from '../data';
+import Filter from '../Filter/Filter';
+import data from '../../data';
 
 class Favorites extends React.Component {
   componentWillMount() {

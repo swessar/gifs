@@ -14,8 +14,7 @@ export default class AddImage extends React.Component {
   }
 
   render() {
-    const visible = 'AddImage ' + (this.state.visible ? 'is-visible' : '');
-    // const visible = 'AddImage';
+    const visible = 'AddImage' + (this.state.visible ? ' is-visible' : '');
 
     return (
       <div className={visible}>

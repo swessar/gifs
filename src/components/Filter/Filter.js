@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from './SearchBar';
-import Images from './Images';
+import SearchBar from '../SearchBar/SearchBar';
+import Images from '../Images/Images';
 
 export default class Filter extends React.Component {
   constructor(props) {

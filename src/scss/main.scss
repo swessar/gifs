@@ -9,13 +9,13 @@
 @import 'base';
 
 //@import 'components/*';
-@import 'components/AddImage';
-@import 'components/Button';
-@import 'components/Favorite';
-@import 'components/Header';
-@import 'components/Image';
-@import 'components/Menu';
-@import 'components/SearchBar';
-@import 'components/Section';
-@import 'components/Site';
-@import 'components/Tooltip';
+@import '../components/AddImage/AddImage';
+@import '../components/Button/Button';
+@import '../components/Favorite/Favorite';
+@import '../components/Header/Header';
+@import '../components/Image/Image';
+@import '../components/Menu/Menu';
+@import '../components/SearchBar/SearchBar';
+@import '../components/Section/Section';
+@import '../components/Site/Site';
+@import '../components/Tooltip/Tooltip';

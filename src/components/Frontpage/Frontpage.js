@@ -1,6 +1,6 @@
 import React from "react";
-import Filter from './Filter';
-import data from '../data';
+import Filter from '../Filter/Filter';
+import data from '../../data';
 
 const Frontpage = () => {
   return (

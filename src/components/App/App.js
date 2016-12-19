@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Match, Miss } from 'react-router';
-import Header from './Header';
-import AddImage from './AddImage';
-import Frontpage from './Frontpage';
-import Favorites from './Favorites';
-import NotFound from "./NotFound";
+import Header from '../Header/Header';
+import AddImage from '../AddImage/AddImage';
+import Frontpage from '../Frontpage/Frontpage';
+import Favorites from '../Favorites/Favorites';
+import NotFound from '../NotFound/NotFound';
 
 export default class App extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Menu from './Menu';
+import Menu from '../Menu/Menu';
 
 export default class Header extends React.Component {
   addLink () {
