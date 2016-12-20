@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Clipboard from 'clipboard';
 import ReactTooltip from 'react-tooltip';
-import { addFavorite, removeFavorite } from '../../actions/favoritesActions';
+import { addFavorite, removeFavorite } from '../../redux/actions/favoritesActions';
 
 class Image extends React.Component {
   constructor(props) {
