@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from 'react-redux';
+// import { store } from '../../redux/createStore';
 import Filter from '../Filter/Filter';
 
 class Favorites extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       filteredImages: null
@@ -23,6 +24,12 @@ class Favorites extends React.Component {
       filteredImages: filteredImages
     });
   }
+
+  // componentDidMount() {
+  //   store.subscribe(() =>
+  //     this.forceUpdate()
+  //   );
+  // }
 
   render() {
     return (
