@@ -21,7 +21,7 @@ class Image extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
+    // console.log(nextProps);
 
     this.setState({
       imageUrl: nextProps.imageUrl,

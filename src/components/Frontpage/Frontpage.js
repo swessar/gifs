@@ -1,11 +1,19 @@
 import React from "react";
+import { connect } from 'react-redux';
 import Filter from '../Filter/Filter';
-import data from '../../data';
 
-const Frontpage = () => {
-  return (
-    <Filter images={data.images} />
-  )
+class Frontpage extends React.Component {
+  render() {
+    const { gifs } = this.props;
+
+    return (
+      <Filter images={gifs.images} />
+    )
+  };
 }
 
-export default Frontpage;
+export default connect(
+  state => ({
+    gifs: state.gifs
+  })
+)(Frontpage);

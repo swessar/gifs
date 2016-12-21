@@ -1,14 +1,21 @@
 import React from "react";
 import { connect } from 'react-redux';
 import Filter from '../Filter/Filter';
-import data from '../../data';
 
 class Favorites extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      filteredImages: null
+    }
+  }
+
   componentWillMount() {
-    const { favorites } = this.props;
+    const { gifs, favorites } = this.props;
 
     let filteredImages = favorites.items.map((id, i) => {
-      const image = data.images.filter(i => i.id === id);
+      const image = gifs.images.filter(i => i.id === id);
       return image[0];
     });
 
@@ -26,6 +33,7 @@ class Favorites extends React.Component {
 
 export default connect(
   state => ({
+    gifs: state.gifs,
     favorites: state.favorites
   })
 )(Favorites);

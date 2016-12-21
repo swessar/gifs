@@ -5,7 +5,7 @@ function getInitialState() {
   }
 }
 
-export default function favorites(state = getInitialState(), action) {
+export function favorites(state = getInitialState(), action) {
   switch (action.type) {
     case 'ADD_FAVORITE':
       return {
