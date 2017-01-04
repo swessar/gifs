@@ -70,7 +70,7 @@ class Image extends React.Component {
   }
 
   render() {
-    const { gifUrl, tipText, imageUrl, keywords } = this.props;
+    const { gifUrl, tipText, imageUrl, keywords, key } = this.props;
 
     return (
       <div className="Image">
@@ -81,7 +81,6 @@ class Image extends React.Component {
           data-effect="solid"
           data-type="light"
           src={ this.state.imageUrl }
-          gifUrl={ gifUrl }
           onClick={this.copyGif.bind(this)}
           onMouseOver={this.loadGif.bind(this)}
           onMouseOut={this.loadImage.bind(this)}

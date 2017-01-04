@@ -1,19 +1,30 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
+import { firebase, helpers } from 'react-redux-firebase';
+const { isLoaded, isEmpty, dataToJS } = helpers;
 import Filter from '../Filter/Filter';
 
-class Frontpage extends React.Component {
+@firebase()
+@connect(
+  ({firebase}) => ({
+    images: dataToJS(firebase, 'images')
+  })
+)
+
+export default class Frontpage extends React.Component {
   render() {
-    const { gifs } = this.props;
+    const { images } = this.props;
+
+    let gifs = !isLoaded(images)
+      ? 'Loading...'
+      : (isEmpty(images))
+        ? 'Nothing found...'
+        : <Filter images={images} />;
 
     return (
-      <Filter images={gifs.images} />
+      <div>
+        {gifs}
+      </div>
     )
   };
 }
-
-export default connect(
-  state => ({
-    gifs: state.gifs
-  })
-)(Frontpage);

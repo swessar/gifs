@@ -1,4 +1,6 @@
-export function gifs(state={images:[]}, action) {
+export function gifs(state = {
+  images: []
+}, action) {
   switch (action.type) {
     case 'GET_GIFS':
       return {

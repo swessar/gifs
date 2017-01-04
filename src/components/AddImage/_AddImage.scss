@@ -1,15 +1,9 @@
 .AddImage {
   display: none;
-  background-color: #000;
   margin-bottom: 50px;
-  @include padding-y(50px);
 
   &.is-visible {
     display: block;
-  }
-
-  .Button {
-    border: 2px solid #fff;
   }
 }
 

@@ -6,18 +6,23 @@ export default class Filter extends React.Component {
   constructor(props) {
     super(props);
 
+    const { images } = this.props;
+
     this.state = {
       query: '',
-      filteredImages: this.props.images,
-      results: this.props.images
+      filteredImages: images,
+      results: images
     }
   }
 
   doSearch(searchText) {
-    let filteredImages = this.props.images.filter((image) => {
-      for(var i = 0; i < image.keywords.length; i++) {
-        if (image.keywords[i].indexOf(searchText) != -1) {
-          return image;
+    const { images } = this.props;
+
+    var filteredImages = {};
+    Object.keys(images).map((key) => {
+      for(var i = 0; i < images[key].keywords.length; i++) {
+        if (images[key].keywords[i].indexOf(searchText) != -1) {
+          filteredImages[key] = images[key];
         }
       }
     });
@@ -37,7 +42,7 @@ export default class Filter extends React.Component {
           <SearchBar
             query={query}
             doSearch={this.doSearch.bind(this)}
-            count={results.length}
+            count={Object.keys(results).length}
           />
           <Images
             images={results}

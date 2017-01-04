@@ -7,13 +7,15 @@ export default class Images extends React.Component {
 
     return (
       <div className="Section Section--images">
-        {images.map((image, i) => {
+        {Object.keys(images).map((i) => {
+          const { image, gif, keywords } = images[i];
+
           return <Image
             key={i}
-            id={image.id}
-            imageUrl={image.image}
-            gifUrl={image.gif}
-            keywords={image.keywords}
+            id={i}
+            imageUrl={image}
+            gifUrl={gif}
+            keywords={keywords}
             doSearch={this.props.doSearch}
             tipText="Copy to clipboard"
             tipTextCopied="Copied!"
