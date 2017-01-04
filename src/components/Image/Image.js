@@ -70,7 +70,7 @@ class Image extends React.Component {
   }
 
   render() {
-    const { gifUrl, tipText, imageUrl, keywords, key } = this.props;
+    const { gifUrl, tipText, imageUrl, keywords } = this.props;
 
     return (
       <div className="Image">

@@ -26,11 +26,14 @@ export default class AddImage extends React.Component {
     const submitForm = () => {
       const { url, keywords } = this.refs;
 
+      // Split & trim keywords
+      let cleanKeywords = keywords.value.split(',').map(keyword => keyword.trim());
+
       // Save image to firebase
       firebase.push('/images', {
         gif: url.value,
         image: 'images/1.jpg',
-        keywords: [keywords.value]
+        keywords: cleanKeywords
       });
 
       // Reset inputs
