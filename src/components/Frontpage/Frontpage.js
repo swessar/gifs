@@ -18,11 +18,11 @@ export default class Frontpage extends React.Component {
     let gifs = !isLoaded(images)
       ? 'Loading...'
       : (isEmpty(images))
-        ? 'Nothing found...'
+        ? 'Nothing found'
         : <Filter images={images} />;
 
     return (
-      <div>
+      <div className="Site-region">
         {gifs}
       </div>
     )

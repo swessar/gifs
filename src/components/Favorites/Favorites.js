@@ -25,8 +25,8 @@ export default class Favorites extends React.Component {
     if (!isLoaded(images)) {
       gifs = 'Loading...';
     } else {
-      if ((isEmpty(images))) {
-        gifs = 'Nothing found...';
+      if ((isEmpty(images)) || !favorites.items.length) {
+        gifs = 'Nothing found';
       } else {
         var filteredImages = {};
 
@@ -52,7 +52,7 @@ export default class Favorites extends React.Component {
     //       } />
 
     return (
-      <div>
+      <div className="Site-region">
         {gifs}
       </div>
     )

@@ -10,8 +10,17 @@ export default class Filter extends React.Component {
 
     this.state = {
       query: '',
-      filteredImages: images,
       results: images
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.query) {
+      this.doSearch(this.state.query);
+    } else {
+      this.setState({
+        results: nextProps.images,
+      });
     }
   }
 
@@ -38,17 +47,15 @@ export default class Filter extends React.Component {
 
     return (
       <div className="Filter">
-        <div className="Site-region">
-          <SearchBar
-            query={query}
-            doSearch={this.doSearch.bind(this)}
-            count={Object.keys(results).length}
-          />
-          <Images
-            images={results}
-            doSearch={this.doSearch.bind(this)}
-          />
-        </div>
+        <SearchBar
+          query={query}
+          doSearch={this.doSearch.bind(this)}
+          count={Object.keys(results).length}
+        />
+        <Images
+          images={results}
+          doSearch={this.doSearch.bind(this)}
+        />
       </div>
     )
   }

@@ -23,7 +23,7 @@ export default class AddImage extends React.Component {
   render() {
     const { firebase, openForm } = this.props;
 
-    const submitForm = () => {
+    const submitForm = (event) => {
       const { url, keywords } = this.refs;
 
       // Split & trim keywords
@@ -39,16 +39,18 @@ export default class AddImage extends React.Component {
       // Reset inputs
       url.value = '';
       keywords.value = '';
+
+      event.preventDefault();
     }
 
     return (
       <div className={ 'AddImage' + (openForm ? ' is-visible' : '') }>
         <div className="Site-region">
-          <div className="AddImage-form">
+          <form className="AddImage-form" onSubmit={submitForm}>
             <input type="text" ref="url" className="AddImage-url" placeholder="Url" />
             <input type="text" ref="keywords" className="AddImage-keywords" placeholder="Keywords" />
-            <button className="Button" onClick={submitForm}>Save</button>
-          </div>
+            <input type="submit" className="Button" value="Save" />
+          </form>
         </div>
       </div>
     )
