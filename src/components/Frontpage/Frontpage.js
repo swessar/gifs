@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
 const { isLoaded, isEmpty, dataToJS } = helpers;
 import Filter from '../Filter/Filter';
+import Loader from '../Loader/Loader';
 
 @firebase()
 @connect(
@@ -16,7 +17,7 @@ export default class Frontpage extends React.Component {
     const { images } = this.props;
 
     let gifs = !isLoaded(images)
-      ? 'Loading...'
+      ? <Loader />
       : (isEmpty(images))
         ? 'Nothing found'
         : <Filter images={images} />;

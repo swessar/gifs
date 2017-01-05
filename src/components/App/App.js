@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
 const { isLoaded, isEmpty, dataToJS } = helpers;
 import { BrowserRouter as Router, Match, Miss } from 'react-router';
-import { getGifs } from '../../redux/actions/gifsActions';
 import Header from '../Header/Header';
 import AddImage from '../AddImage/AddImage';
 import Frontpage from '../Frontpage/Frontpage';
@@ -13,11 +12,6 @@ import NotFound from '../NotFound/NotFound';
 // @firebase()
 // export default class App extends React.Component {
 class App extends React.Component {
-  // componentWillMount() {
-  //   // Put the gifs in the store when App is initiated
-  //   this.props.dispatch(getGifs());
-  // }
-
   render() {
     return (
       <Router>

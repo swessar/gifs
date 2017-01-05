@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
 const { isLoaded, isEmpty, dataToJS } = helpers;
 import Filter from '../Filter/Filter';
+import Loader from '../Loader/Loader';
 
 @firebase()
 @connect(
@@ -23,7 +24,7 @@ export default class Favorites extends React.Component {
 
     let gifs;
     if (!isLoaded(images)) {
-      gifs = 'Loading...';
+      gifs = <Loader />;
     } else {
       if ((isEmpty(images)) || !favorites.items.length) {
         gifs = 'Nothing found';

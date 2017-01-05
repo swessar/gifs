@@ -3,12 +3,10 @@ import {reactReduxFirebase, firebaseStateReducer } from 'react-redux-firebase';
 import firebaseConfig from './firebaseConfig';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { gifs } from './reducers/gifsReducer';
 import { favorites } from './reducers/favoritesReducer';
 import { openForm } from './reducers/openFormReducer';
 
 const reducers = combineReducers({
-  gifs: gifs,
   favorites: favorites,
   openForm: openForm,
   firebase: firebaseStateReducer
