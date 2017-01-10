@@ -1,18 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
+import ImageForm from '../ImageForm/ImageForm';
+
 const { isLoaded, isEmpty, dataToJS } = helpers;
 
 @firebase()
-// @firebase([
-//   '/images'
-// ])
-// @connect(
-//   ({firebase}) => ({
-//     images: dataToJS(firebase, 'images')
-//   })
-// )
-
 @connect(
   state => ({
     openForm: state.openForm.openForm
@@ -23,34 +16,32 @@ export default class AddImage extends React.Component {
   render() {
     const { firebase, openForm } = this.props;
 
-    const submitForm = (event) => {
-      const { url, keywords } = this.refs;
-
-      // Split & trim keywords
-      let cleanKeywords = keywords.value.split(',').map(keyword => keyword.trim());
+    const formSubmit = (url, keywords) => {
+      const { ImageForm } = this.refs;
 
       // Save image to firebase
       firebase.push('/images', {
-        gif: url.value,
+        gif: url,
         image: 'images/1.jpg',
-        keywords: cleanKeywords
+        keywords: keywords
       });
 
       // Reset inputs
-      url.value = '';
-      keywords.value = '';
+      ImageForm.refs.url.value = '';
+      ImageForm.refs.keywords.value = '';
 
-      event.preventDefault();
+      console.log('sparat!');
     }
 
     return (
       <div className={ 'AddImage' + (openForm ? ' is-visible' : '') }>
         <div className="Site-region">
-          <form className="AddImage-form" onSubmit={submitForm}>
-            <input type="text" ref="url" className="AddImage-url" placeholder="Url" />
-            <input type="text" ref="keywords" className="AddImage-keywords" placeholder="Keywords" />
-            <input type="submit" className="Button" value="Save" />
-          </form>
+          <ImageForm
+            ref="ImageForm"
+            formSubmit={formSubmit}
+            imageUrl={null}
+            keywords={null}
+          />
         </div>
       </div>
     )

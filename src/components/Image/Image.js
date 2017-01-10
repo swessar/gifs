@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import Clipboard from 'clipboard';
 import ReactTooltip from 'react-tooltip';
 import { addFavorite, removeFavorite } from '../../redux/actions/favoritesActions';
@@ -21,11 +22,8 @@ class Image extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log(nextProps);
-
     this.setState({
       imageUrl: nextProps.imageUrl,
-      keywords: nextProps.keywords,
       activeItem: nextProps.favorites.items.includes(nextProps.id)
     });
   }
@@ -70,7 +68,7 @@ class Image extends React.Component {
   }
 
   render() {
-    const { gifUrl, tipText, imageUrl, keywords } = this.props;
+    const { gifUrl, tipText, imageUrl, keywords, id } = this.props;
 
     return (
       <div className="Image">
@@ -93,6 +91,7 @@ class Image extends React.Component {
             onClick={this.keywordSearch.bind(this, keyword)}
             >#{keyword}</span>
         })}
+        <Link to={`/edit/${id}`}>Edit</Link>
         <div
           className={"Favorite" + (this.state.activeItem ? " is-active" : "")}
           onClick={this._toggleFavorite.bind(this)}
