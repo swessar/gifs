@@ -86,14 +86,12 @@ class Image extends React.Component {
           onMouseOut={this.loadImage.bind(this)}
         />
         {keywords.map((keyword, i) => {
-          let comma = ((keywords.length - 1) > i) ? ',' : '';
-
           return <span
             key={i}
             className="Image-keyword"
             ref="imageKeyword"
             onClick={this.keywordSearch.bind(this, keyword)}
-            >{keyword}{comma}</span>
+            >#{keyword}</span>
         })}
         <div
           className={"Favorite" + (this.state.activeItem ? " is-active" : "")}
